@@ -3,53 +3,69 @@
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
-<style>
-html, body { width: 100%; height: 100%; }
-body {
-  background-image: url(images/skyline.svg);
-  background-color: #CDE4F4;
-  background-size: 110% auto;
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  font-family: 'PT Sans', sans-serif;
-}
-
-h1, h2, h3, p {
-  color: #141613;
-}
-
-.main-text {
-  text-align: right;
-  margin-right: 100px;
-}
-
-.name {
-  color: rgb(235,79,66);
-}
-.names {
-  font-size: 128px;
-}
-.ampersand {
-  color: rgb(255,180,79);
-}
-.getting-married {
-  font-style:italic;
-  margin-top:-25px;
-}
-.date {
-  color: rgb(235,79,66);
-  font-size: 46px;
-}
-
-</style>
+<link rel="stylesheet" href="styles/style.css">
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script>
+$(document).ready(function() {
+    $(".pulldown-tab").click(function() {
+      $(".pulldown").slideToggle();
+    });
+});
+</script>
 </head>
 <body>
 <div class="container-fluid">
+
+  <div class="pulldown">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+      <form class="form" role="form" method="post" action="http://localhost:3000/guests">
+        <div class="form-group">
+          <input type="text" class="form-control input-lg" id="names" name="names" placeholder="name(s)">
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-control input-lg" id="email" name="email" placeholder="email">
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="form-group">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="rsvp" id="rsvp-yes" value="yes" checked>
+                  Yep, planning on it!
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="rsvp" id="rsvp-no" value="no">
+                  Nope, can't make it
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6 rsvp-submit">
+            <button type="submit" class="btn btn-default input-lg rsvp-button">RSVP!</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    </div>
+  </div>
+  <a href="#rsvp"><div class="pulldown-tab">rsvp</div></a>
   <div class="main-text">
     <h1 class="names"><span class="name">Cary</span> <span class="ampersand">&amp;</span> <span class="name">Todd</span></h1>
     <h2 class="getting-married">are getting married</h2>
     <h2 class="date">8.1.2015</h2>
   </div>
+  <div id="skyline-container">
+    <img src="images/skyline.svg">
+  </div>
+  <div class="row underground">
+    <h2 class="section">info</h2>
+  </div>
+  <!--<div class="row photo-backs">
+    <img src="images/caryandtodd.jpg"></img>
+  </div>-->
 </div>
 </body>
 </html>
